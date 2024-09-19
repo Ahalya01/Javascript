@@ -4,8 +4,6 @@
 
 X=5;
 Y=8;
-console.log(x+y); //13
-
 // 2.using var
 
 var a;//declaration
