@@ -29,7 +29,7 @@ console.log(z);  // 30
 
 //use a variable when declaring other variables.
 var d= 100;
-var e = x + 102;
+var e = d + 102;
 console.log(e)//202
 //declare multiple variables in single var 
 var f=7,g=20;
