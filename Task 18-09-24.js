@@ -19,7 +19,7 @@ console.log(b); //206
 // 2.2 Reassigning the values
 var c = 5;
 c = 15; 
-console.log(y); //15
+console.log(c); //15
 
 //2.3 Hoisting 
 console.log(z);  // undefined due to hoisting
