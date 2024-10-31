@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation Example</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+
+        /* Styling for nested divs */
+        .outer-container {
+            border: 2px solid black;
+            padding: 60px;
+            background-color: #d3d3d3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .middle-container {
+            border: 2px solid darkblue;
+            padding: 40px;
+            background-color: #add8e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .inner-container {
+            border: 2px solid darkred;
+            padding: 20px;
+            background-color: #f08080;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer-container" id="outerContainer">
+        <div class="middle-container" id="middleContainer">
+            <div class="inner-container" id="innerContainer"></div>
+        </div>
+    </div>
+    <button id="click">Click me</button>
+
+    <script src="./Task 30-10-24.js">
+       
+    </script>
+</body>
+</html>
