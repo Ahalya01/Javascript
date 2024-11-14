@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+<body>
+    <div id="signupContainer">
+        <h1>Signup Page</h1>
+        <form id="signupForm" onsubmit="handleSignup(event)">
+            <input type="text" id="signupName" placeholder="Enter your name" required>
+            <input type="password" id="signupPassword" placeholder="Enter your password" required>
+            <button type="submit">Signup</button>
+        </form>
+    </div>
+
+    <script>
+        // Apply styling 
+        document.body.style.cssText = `
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f4f8;
+        `;
+
+        const signupContainer = document.getElementById("signupContainer");
+        signupContainer.style.cssText = `
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 40px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        `;
+
+        const heading = document.querySelector("h1");
+        heading.style.cssText = `
+            color: #333;
+            margin-bottom: 20px;
+        `;
+
+        const inputs = document.querySelectorAll("input");
+        inputs.forEach(input => {
+            input.style.cssText = `
+                width: 80%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 16px;
+            `;
+        });
+
+        const signupButton = document.querySelector("button");
+        signupButton.style.cssText = `
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        `;
+
+        // Function to handle signup
+        function handleSignup(event) {
+            event.preventDefault();
+            // Get user input
+            let username = document.getElementById("signupName").value;
+            let userPassword = document.getElementById("signupPassword").value;
+
+            // Store in localStorage
+            localStorage.setItem("username", username);
+            localStorage.setItem("userPassword", userPassword);
+
+            console.log("Stored Username:", localStorage.getItem("username")); // Debugging
+            console.log("Stored Password:", localStorage.getItem("userPassword")); // Debugging
+
+            alert("Signup successful! Redirecting to login page...");
+            window.location.href = "login.html"; // Redirect to login page
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        /* Basic body styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Navigation styling */
+        nav {
+            margin: 20px;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 18px;
+        }
+
+        /* Product container styling */
+        #products-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Product card styling */
+        .product-card {
+            width: 250px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        /* Hover effect on product card */
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-card h2 {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .product-card p {
+            color: #666;
+        }
+
+        .product-card .price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .product-card button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="home.html">Home</a> |
+        <a href="products.html">Products</a>
+    </nav>
+
+    <h1>Our Products</h1>
+    <div id="products-container"></div>
+
+    <script>
+        // Check if the user is logged in
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+
+        // Product data
+        const products = [
+            {
+                "id": 1,
+                "title": "Rose Gold Charm Bracelet",
+                "price": 59.99,
+                "description": "A beautiful rose gold bracelet adorned with sparkling charms for a delicate and elegant look.",
+                "category": "jewelery",
+                "image": "https://m.media-amazon.com/images/I/71NbkTQGTML._SY625_.jpg",
+                "rating": {
+                    "rate": 4.7,
+                    "count": 150
+                }
+            },
+            {
+                "id": 2,
+                "title": "Silver Infinity Bracelet",
+                "price": 34.99,
+                "description": "A timeless silver bracelet featuring the infinity symbol, symbolizing eternal love and friendship.",
+                "category": "jewelery",
+                "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR1Z1yVHNOABPwzs08RBKZVwPpLQVk0KVgDKTuNTt-zAOWG1mMw9MB2HeRwuyKkGW8EgJGYMzean4RVE7lgMsgNtcwncT6vXblRVtZwu1yc",
+                "rating": {
+                    "rate": 4.5,
+                    "count": 240
+                }
+            },
+            {
+                "id": 3,
+                "title": "Beaded Boho Bracelet",
+                "price": 12.50,
+                "description": "A vibrant boho-style bracelet made of colorful beads and tassels, perfect for casual outfits.",
+                "category": "jewelery",
+                "image": "https://m.media-amazon.com/images/I/51ad6wri88L._SY695_.jpg",
+                "rating": {
+                    "rate": 4.3,
+                    "count": 320
+                }
+            },
+            {
+                "id": 4,
+                "title": "Gold Plated Bangle Set",
+                "price": 29.99,
+                "description": "An exquisite set of gold-plated bangles designed to enhance any traditional outfit.",
+                "category": "jewelery",
+                "image": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTYzNJAx7_4UCMfKhb5N06_kQwFj4XQ6AeUjAeKxOYXINsNCKj3WrQzEa4DiFmcmWAzh80Wc80AQaHUH4aUDyZ-dnZ1rHYALDfu3hW1UKlo5SvPbKkQp8v0&usqp=CAE",
+                "rating": {
+                    "rate": 4.0,
+                    "count": 400
+                }
+            }
+        ];
+
+        // Function to display products
+        function displayProducts() {
+            const container = document.getElementById('products-container');
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+
+                card.innerHTML = `
+                    <img src="${product.image}" alt="${product.title}">
+                    <h2>${product.title}</h2>
+                    <p>${product.description}</p>
+                    <p class="price">$${product.price}</p>
+                    <button onclick="buyNow(${product.id})">Buy Now</button>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+
+        // Function to handle the "Buy Now" action
+        function buyNow(productId) {
+            const product = products.find(p => p.id === productId);
+            if (confirm(`Do you want to buy the ${product.title}?`)) {
+                window.location.href = "buy.html";
+            }
+        }
+
+        // Call the function to display products
+        displayProducts();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Purchase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Confirm Your Purchase</h1>
+        <p>Do you really want to proceed with this purchase?</p>
+        <button class="btn" onclick="confirmPurchase()">Confirm Purchase</button>
+    </div>
+
+    <script>
+        function confirmPurchase() {
+            if (confirm("Are you sure you want to buy this product?")) {
+                showAlert("Thank you for your purchase! Enjoy your new product.");
+                window.location.href = "products.html";
+            } else {
+                showAlert("You have canceled your purchase. Come back anytime!");
+                window.location.href = "products.html";
+            }
+        }
+
+        function showAlert(message) {
+            const alertBox = document.createElement('div');
+            alertBox.textContent = message;
+            alertBox.style.backgroundColor = "#4CAF50";
+            alertBox.style.color = "white";
+            alertBox.style.padding = "10px";
+            alertBox.style.borderRadius = "5px";
+            alertBox.style.position = "absolute";
+            alertBox.style.top = "20px";
+            alertBox.style.left = "50%";
+            alertBox.style.transform = "translateX(-50%)";
+            alertBox.style.fontSize = "16px";
+            alertBox.style.zIndex = "1000";
+            document.body.appendChild(alertBox);
+            
+            // Remove the alert after 3 seconds
+            setTimeout(() => {
+                alertBox.remove();
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>

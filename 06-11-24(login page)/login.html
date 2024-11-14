@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        #loginForm h2 {
+            margin: 0 0 15px 0;
+            color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm" onsubmit="login(event)">
+        <h2>Login</h2>
+        <input type="text" id="name" placeholder="Enter your username" required>
+        <input type="password" id="password" placeholder="Enter your password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        // Apply styling 
+        document.body.style.display = "flex";
+        document.body.style.justifyContent = "center";
+        document.body.style.alignItems = "center";
+        document.body.style.height = "100vh";
+        document.body.style.backgroundColor = "#f0f8ff";
+
+        const form = document.getElementById("loginForm");
+        form.style.display = "flex";
+        form.style.flexDirection = "column";
+        form.style.width = "300px";
+        form.style.gap = "15px";
+        form.style.padding = "20px";
+        form.style.border = "2px solid #ddd";
+        form.style.borderRadius = "8px";
+        form.style.backgroundColor = "#fff";
+        form.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+
+        const inputs = document.querySelectorAll("input");
+        inputs.forEach(input => {
+            input.style.padding = "10px";
+            input.style.border = "1px solid #ccc";
+            input.style.borderRadius = "4px";
+            input.style.fontSize = "16px";
+            input.style.width = "100%";
+        });
+
+        const button = document.querySelector("button");
+        button.style.padding = "10px";
+        button.style.border = "none";
+        button.style.borderRadius = "4px";
+        button.style.backgroundColor = "#4CAF50";
+        button.style.color = "#fff";
+        button.style.fontSize = "16px";
+        button.addEventListener("mouseenter", () => {
+            button.style.backgroundColor = "#45a049";
+        });
+        button.addEventListener("mouseleave", () => {
+            button.style.backgroundColor = "#4CAF50";
+        });
+
+    function login(event) {
+    event.preventDefault();
+    let inputN = document.getElementById("name").value;
+    let inputP = document.getElementById("password").value;
+    let storedN = localStorage.getItem("username");
+    let storedP = localStorage.getItem("userPassword");
+    if (storedN && storedP) {
+        if (storedN === inputN && storedP === inputP) {
+            let screenWidth = window.innerWidth;
+
+            if (screenWidth < 500) {
+                alert("Screen size is too small, we can't proceed further.");
+            } else {
+                alert("Successfully logged in");
+                localStorage.setItem("isLoggedIn", "true");
+                window.location.href = "home.html";
+            }
+        } else {
+            alert("Login failed! Incorrect username or password.");
+        }
+    } else {
+        alert("Stored username or password is not found. Please register.");
+    }
+    document.getElementById("name").value = "";
+    document.getElementById("password").value = "";
+}
+
+    </script>
+</body>
+</html>

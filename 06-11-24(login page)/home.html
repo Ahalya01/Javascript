@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <nav id="navbar">
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="products.html">Explore Products</a>
+    </nav>
+
+    <script>
+        // Redirect to login page if not logged in
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+
+        // Apply basic styling to the body
+        document.body.style.fontFamily = "Arial, sans-serif";
+        document.body.style.margin = "0";
+        document.body.style.padding = "0";
+        document.body.style.backgroundColor = "#f4f4f9";
+        document.body.style.display = "flex";
+        document.body.style.justifyContent = "center";
+        document.body.style.alignItems = "center";
+        document.body.style.height = "100vh";
+
+        // Style the navigation bar
+        const navbar = document.getElementById("navbar");
+        navbar.style.display = "flex";
+        navbar.style.gap = "20px";
+        navbar.style.padding = "20px 40px";
+        navbar.style.borderRadius = "8px";
+        navbar.style.backgroundColor = "#007BFF";
+        navbar.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
+        
+        // Style navigation links
+        const links = document.querySelectorAll("nav a");
+        links.forEach(link => {
+            link.style.color = "#ffffff";
+            link.style.textDecoration = "none";
+            link.style.fontSize = "18px";
+            link.style.transition = "color 0.3s";
+            link.style.padding = "10px 15px";
+        });
+
+        // Add hover effect to links
+        links.forEach(link => {
+            link.addEventListener("mouseenter", () => {
+                link.style.color = "#ffdd57";
+            });
+            link.addEventListener("mouseleave", () => {
+                link.style.color = "#ffffff";
+            });
+        });
+    </script>
+</body>
+</html>
