@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <p>0</p>
+        <div class="buttons">
+            <button onclick="validate('7')">7</button>
+            <button onclick="validate('8')">8</button>
+            <button onclick="validate('9')">9</button>
+            <button onclick="validate('%')">%</button>
+        </div>
+        <div class="buttons">
+            <button onclick="validate('4')">4</button>
+            <button onclick="validate('5')">5</button>
+            <button onclick="validate('6')">6</button>
+            <button onclick="validate('+')">+</button>
+        </div>
+        <div class="buttons">
+            <button onclick="validate('1')">1</button>
+            <button onclick="validate('2')">2</button>
+            <button onclick="validate('3')">3</button>
+            <button onclick="validate('-')">-</button>
+        </div>
+        <div class="buttons">
+            <button onclick="validate('0')">0</button>
+            <button onclick="validate('.')">.</button>
+            <button onclick="getResult()">=</button>
+            <button onclick="validate('*')">*</button>
+        </div>
+
+        <button class="clear" onclick="vanish()">C</button>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
