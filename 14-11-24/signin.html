@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Flow - Sign Up</title>
+    <style>
+        .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px; 
+}
+    </style>
+</head>
+
+<body>
+    <div class="signup_container">
+        <h4 class="brand_tagline">Music Flow - The Beat that Moves You...</h4>
+        <h3>Sign Up</h3>
+        <form id="signup_form">
+            <input type="text" id="signup_username" placeholder="Username" required>
+            <br>
+            <span id="username_error" class="error-message"></span>
+            <br>
+            <input type="email" id="signup_email" placeholder="user@example.com" required>
+            <br>
+            <span id="signup_email_error" class="error-message"></span>
+            <br>
+            <input type="password" id="signup_password" placeholder="New Password" required>
+            <br>
+            <span id="signup_password_error" class="error-message"></span>
+            <br>
+            <input type="password" id="confirm_password" placeholder="Confirm Password" required>
+            <br>
+            <span id="confirm_password_error" class="error-message"></span>
+            <br><br>
+            <button id="signup_button" type="submit">Sign Up</button>
+        </form>        
+        <a href="login.html" id="login_link">
+            <h5>Already have an account? Log In</h5>
+        </a>
+    </div>
+    <script src="signin.js"></script>
+</body>
+
+</html>
